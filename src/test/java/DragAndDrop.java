@@ -29,6 +29,7 @@ public class DragAndDrop {
         WebElement sourceElement = driver.findElement(By.id("drag_dot_1"));
         WebElement targetElement = driver.findElement(By.id("drag_dot_2"));
         gestures.dragAndDrop(sourceElement, targetElement);
+        driver.findElement(MobileBy.AccessibilityId("Drag and Drop")).click();
     }
 
     @AfterTest
