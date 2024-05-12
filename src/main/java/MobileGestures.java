@@ -20,12 +20,13 @@ public class MobileGestures {
         int startY = (int) (size.height * 0.8);
         int endY = (int) (size.height * 0.2);
 
-         new TouchAction<>(driver)
+        new TouchAction<>(driver)
                 .press(PointOption.point(startX, startY))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
                 .moveTo(PointOption.point(startX, endY))
                 .release().perform();
     }
+
     public void dragAndDrop(WebElement sourceElement, WebElement targetElement) {
         int startX = sourceElement.getLocation().getX() + (sourceElement.getSize().getWidth() / 2);
         int startY = sourceElement.getLocation().getY() + (sourceElement.getSize().getHeight() / 2);
@@ -38,6 +39,16 @@ public class MobileGestures {
                 .moveTo(PointOption.point(endX, endY))
                 .release()
                 .perform();
+    }
+
+    public void swipe(int startX, int startY, int endX, int endY, Duration duration) {
+
+            new TouchAction<>(driver)
+                    .press(PointOption.point(startX, startY))
+                    .waitAction(WaitOptions.waitOptions(duration))
+                    .moveTo(PointOption.point(endX, endY))
+                    .release()
+                    .perform();
     }
 }
 
